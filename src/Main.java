@@ -3,8 +3,9 @@ public class Main {
 
 	private static final int UPDATE_TIME = 300;
 	
-	private static final String ROBOT_IP = "10.1.92.119";
-	private static final String COMPUTER_IP = "10.1.92.11";
+	private static final String ROBOT_IP = "10.1.92.2";
+	private static final String COMPUTER_IP = "10.1.92.122";
+	private static final String AXIS_CAMERA_IP = "10.1.92.11";
 	
 	public static void main(String[] args){
 		
@@ -12,6 +13,7 @@ public class Main {
 	
 		diagnostics.addLoggedHost(COMPUTER_IP, "PC COMM", "DOWN");
 		diagnostics.addLoggedHost(ROBOT_IP,"ROBOT COMM", "DOWN");
+		diagnostics.addLoggedHost(AXIS_CAMERA_IP,"AXIS COMM", "DOWN");
 		
 		
 		System.out.println("Starting update thread...");
