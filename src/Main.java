@@ -1,19 +1,21 @@
 
 public class Main {
 
-	private static final String ROBOT_IP = "10.1.92.122";
+	private static final int UPDATE_TIME = 300;
+	
+	private static final String ROBOT_IP = "10.1.92.119";
 	private static final String COMPUTER_IP = "10.1.92.11";
 	
 	public static void main(String[] args){
 		
-		DiagnosticsWindow diagnostics = new DiagnosticsWindow(ROBOT_IP, COMPUTER_IP);
+		NetworkDiagnosticsWindow diagnostics = new NetworkDiagnosticsWindow(ROBOT_IP, COMPUTER_IP);
 	
-		diagnostics.addLoggedItem("PC COMM", "DOWN");
-		diagnostics.addLoggedItem("ROBOT COMM", "DOWN");
+		diagnostics.addLoggedHost(COMPUTER_IP, "PC COMM", "DOWN");
+		diagnostics.addLoggedHost(ROBOT_IP,"ROBOT COMM", "DOWN");
 		
 		
 		System.out.println("Starting update thread...");
-		DiagnosticsUpdater updater = new DiagnosticsUpdater(diagnostics);
+		NetworkDiagnosticsUpdater updater = new NetworkDiagnosticsUpdater(diagnostics, UPDATE_TIME);
 		updater.start();
 		
 	}
